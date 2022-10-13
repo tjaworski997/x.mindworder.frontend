@@ -1,0 +1,19 @@
+<div class="container">
+  <input
+    *ngFor="let in of [].constructor(lettersCount); let i = index"
+    id="il_{{ i }}"
+    type="text"
+    class="letter"
+    maxlength="1"
+    size="1"
+    (keyup)="keyupHandler($event)"
+    (focus)="selectAllContent($event)"
+    value=" "
+  />
+
+  <app-svg-check class="button-check" (click)="checkWord()"></app-svg-check>
+  <app-svg-x class="button-clear" (click)="clearWord()"></app-svg-x>
+</div>
+<div>
+  {{ info }}
+</div>

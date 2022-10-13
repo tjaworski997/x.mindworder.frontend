@@ -1,0 +1,53 @@
+.batch {
+  display: flex;
+  padding: 2px;
+  .batch-number {
+    width: 24px;
+    text-align: center;
+    margin-right: 10px;
+    color: var(--gray);
+  }
+
+  .letters {
+    flex-grow: 2;
+    text-transform: uppercase;
+    font-weight: 400;
+
+    .letter-correct {
+      color: var(--letter-correct);
+    }
+    .letter-correct-wrong-position {
+      color: var(--letter-correct-wrong-position);
+    }
+    .letter-wrong {
+      color: var(--letter-wrong);
+    }
+  }
+
+  .letters-score-container {
+    display: flex;
+
+    .letters-score {
+      width: 12px;
+      height: 12px;
+      margin: 2px;
+      text-align: center;
+      color: black;
+      font-weight: 400;
+      border-radius: 4px;
+      border: 1px solid var(--gray);
+      font-size: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .letters-correct-on-right-position {
+      background-color: var(--letter-correct);
+    }
+
+    .letters-correct-on-wrong-position {
+      background-color: var(--letter-correct-wrong-position);
+    }
+  }
+}
