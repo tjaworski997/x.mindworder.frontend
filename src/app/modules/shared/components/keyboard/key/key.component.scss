@@ -1,0 +1,18 @@
+button {
+  margin: 1px;
+  height: 60px;
+  border: none;
+  background-color: #333;
+  font-weight: 400;
+  font-size: 16px;
+  color: white;
+  min-width: calc(8vw);
+  border-radius: 4px;
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    background-color: orange;
+  }
+}
