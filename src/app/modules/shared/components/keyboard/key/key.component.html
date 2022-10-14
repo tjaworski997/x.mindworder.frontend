@@ -1,4 +1,4 @@
-<button [ngSwitch]="key">
+<button [ngSwitch]="key" (click)="keyClick(key)">
   <svg
     *ngSwitchCase="'DEL'"
     aria-hidden="true"

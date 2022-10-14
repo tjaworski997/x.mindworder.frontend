@@ -1,18 +1,20 @@
 :root {
   --background: #000;
   --color: white;
+  --color-accent: orange;
 
-  --letter-wrong: #ff6961;
-  --letter-correct-wrong-position: #f8d66d;
-  --letter-correct: #7abd7e;
-
-  --background-wrong: #ff6961;
-  --background-correct-wrong-position: #f8d66d;
-  --background-correct: #7abd7e;
+  --letter-background-correct-wrong-position: #fbfde1;
+  --letter-background-correct: #d2fdbb;
+  --letter-correct-color: #000;
 
   --button: #fff;
   --button-gray: #666;
 
-  --gray: #666;
-  --gray-dark: #333;
+  --gray: #34495e;
+  --darkgray: #2c3e50;
+
+  --key: #333;
+  --key-pressed: #666;
+
+  --active-letter: #999;
 }

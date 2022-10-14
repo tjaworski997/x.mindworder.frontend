@@ -1,9 +1,9 @@
 button {
-  margin: 1px;
+  margin: 2px;
   height: 60px;
   border: none;
-  background-color: #333;
-  font-weight: 400;
+  background-color: var(--key);
+  font-weight: 600;
   font-size: 16px;
   color: white;
   min-width: calc(8vw);
@@ -13,6 +13,10 @@ button {
   }
 
   &:active {
-    background-color: orange;
+    background-color: var(--key-pressed);
   }
+}
+
+svg {
+  padding-top: 8px;
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { RandomWordService } from 'src/app/core/services/random-word.service';
 import {
   AnswerType,
@@ -7,17 +7,21 @@ import {
 import 'src/app/core/helpers/string.extensions';
 
 @Component({
-  selector: 'app-main',
-  templateUrl: './main.component.html',
-  styleUrls: ['./main.component.scss'],
+  selector: 'app-game',
+  templateUrl: './game.component.html',
+  styleUrls: ['./game.component.scss'],
 })
-export class MainComponent implements OnInit {
+export class GameComponent implements OnInit {
+  @Input() wordLength = 5;
+
   word: string = '';
-  wordLength = 5;
+
   batchNumber = 1;
   tip = 'tip';
+  currentLetterId = 0;
+  letters: Array<string> = new Array<string>();
 
-  gameBatches: Array<GameBatchModel> = new Array<GameBatchModel>();
+  gameBatches: Array<GameBatchModel> = [];
 
   constructor(private randomWordService: RandomWordService) {}
 
@@ -25,16 +29,18 @@ export class MainComponent implements OnInit {
     this.randomWordService.getRandomWord(this.wordLength).subscribe((p) => {
       this.word = p.word;
     });
+
+    this.clear();
   }
 
-  checkWord($word: string) {
-    $word = $word.toLowerCase();
+  checkWord() {
+    const word = this.letters.join('').toLowerCase();
 
     let pattern = this.word;
 
     let answerInfo = new Array<AnswerType>();
 
-    [...$word].forEach((p, cnt) => {
+    [...word].forEach((p, cnt) => {
       console.log(pattern);
 
       if (p === pattern[cnt]) {
@@ -55,7 +61,7 @@ export class MainComponent implements OnInit {
     });
 
     const batchInfo = {
-      letters: $word,
+      letters: word,
       lettersWrong: answerInfo.filter((p) => p == AnswerType.letterWrong)
         .length,
       lettersCorrectOnRightPosition: answerInfo.filter(
@@ -78,4 +84,50 @@ export class MainComponent implements OnInit {
   showWord() {
     this.tip = this.word;
   }
+
+  clear() {
+    for (let i = 0; i < this.wordLength; i++) {
+      this.letters[i] = '';
+    }
+    this.currentLetterId = 0;
+  }
+
+  keyPress($key: string) {
+    switch ($key) {
+      case 'ENTER':
+        this.checkWord();
+        this.currentLetterId = 0;
+        break;
+      case 'HELP':
+      case 'POMOC':
+        this.help();
+        break;
+      case 'DEL':
+        this.letters[this.currentLetterId] = '';
+        if (this.currentLetterId != 0) {
+          this.currentLetterId--;
+        }
+        break;
+      case 'WYCZYŚĆ':
+      case 'CLEAR':
+        this.clear();
+        break;
+      default:
+        this.letters[this.currentLetterId] = $key;
+
+        if (this.currentLetterId != this.wordLength - 1) {
+          this.currentLetterId++;
+        }
+
+        break;
+    }
+  }
+
+  letterClick($event: MouseEvent) {
+    const target = $event.target as HTMLDivElement;
+    const id = target.id.substring(3);
+    this.currentLetterId = parseInt(id);
+  }
+
+  private help() {}
 }

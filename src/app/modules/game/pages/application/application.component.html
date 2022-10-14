@@ -1,0 +1,6 @@
+<div *ngIf="state == stateType.Start">
+  <app-starter (start)="startGame($event)"></app-starter>
+</div>
+<div *ngIf="state == stateType.Game">
+  <app-game [wordLength]="level"></app-game>
+</div>

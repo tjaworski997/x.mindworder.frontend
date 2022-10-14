@@ -1,9 +1,9 @@
 <div class="batch">
-  <div class="batch-number">
-    {{ batch?.batchNumber }}
-  </div>
+  <!--  <div class="batch-number">-->
+  <!--    {{ batch?.batchNumber }}-->
+  <!--  </div>-->
   <div class="letters">
-    <span
+    <div
       *ngFor="let l of batch?.lettersAnswerInfo; let i = index"
       [ngClass]="{
         'letter-correct': l === answerType.letterCorrectOnRightPosition,
@@ -11,22 +11,9 @@
           l === answerType.letterCorrectOnWrongPosition,
         'letter-wrong': l === answerType.letterWrong
       }"
+      class="letter"
     >
       {{ formatLetters(batch!.letters[i]) }}
-    </span>
-  </div>
-  <div class="letters-score-container">
-    <div
-      class="letters-score letters-correct-on-right-position"
-      *ngIf="batch?.lettersCorrectOnRightPosition"
-    >
-      {{ batch?.lettersCorrectOnRightPosition }}
-    </div>
-    <div
-      class="letters-score letters-correct-on-wrong-position"
-      *ngIf="batch?.lettersCorrectOnWrongPosition"
-    >
-      {{ batch?.lettersCorrectOnWrongPosition }}
     </div>
   </div>
 </div>

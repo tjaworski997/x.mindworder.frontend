@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-key',
@@ -9,6 +9,12 @@ export class KeyComponent implements OnInit {
   constructor() {}
 
   @Input() key: string = '';
+  @Output()
+  onKeyPress: EventEmitter<string> = new EventEmitter<string>();
 
   ngOnInit(): void {}
+
+  keyClick(key: string) {
+    this.onKeyPress.emit(key);
+  }
 }

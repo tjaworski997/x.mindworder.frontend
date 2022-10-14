@@ -1,0 +1,41 @@
+.letters-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #111;
+  align-items: center;
+  border-bottom: 1px solid #333;
+  padding: 10px 0;
+  margin-bottom: 10px;
+
+  .letter {
+    min-width: 20px;
+    height: 46px;
+    width: 30px;
+    border: 1px solid #333;
+    margin: 5px;
+    background-color: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 34px;
+    font-weight: 600;
+  }
+
+  .active {
+    border-color: var(--active-letter);
+  }
+}
+
+.keyboard {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 330px;
+}
+
+.main {
+  overflow-y: scroll;
+  height: calc(100vh - 94px - 330px);
+}

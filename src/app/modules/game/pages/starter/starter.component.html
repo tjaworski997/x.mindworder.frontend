@@ -1,0 +1,30 @@
+<div class="starter">
+  <h1>MINDWORDER</h1>
+
+  <p>
+    <strong>MINDWORDER</strong> to gra która ma łączyć mastermind (kocham) ze
+    scrabblami i literakami (uwielbiam je)
+  </p>
+  <p>Czyli... anagramy, słowa z liter wzbogacone o prostą logikę.</p>
+
+  <p class="accent"><strong>Podejmiesz wyzwanie?</strong></p>
+
+  <div class="level">
+    <p>Trudność (ilość liter)</p>
+
+    <div class="letters-count">
+      <select name="level" #level>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+      </select>
+    </div>
+  </div>
+
+  <button (click)="starGame()">graj</button>
+</div>
