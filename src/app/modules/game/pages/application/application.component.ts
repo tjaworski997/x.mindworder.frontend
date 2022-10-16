@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalService } from 'src/app/modules/shared/services/modal/modal.service';
+import { ModalParams } from 'src/app/modules/shared/services/modal/modal.model';
+import { GameModel, GameState } from 'src/app/core/models/game.model';
 
 @Component({
   selector: 'app-application',
@@ -8,21 +11,32 @@ import { Component, OnInit } from '@angular/core';
 export class ApplicationComponent implements OnInit {
   public stateType: typeof GameState = GameState;
 
-  state: GameState = GameState.Start;
-  level: number = 3;
+  modalVisible = false;
 
-  constructor() {}
+  modalParams: ModalParams | undefined;
+
+  game: GameModel = new GameModel();
+
+  constructor(private modalService: ModalService) {}
   ngOnInit(): void {
-    this.state = GameState.Start;
+    this.modalService.modalCloseBehavior.subscribe((p) => {
+      this.modalVisible = false;
+    });
+
+    this.modalService.modalOpenBehavior.subscribe((p) => {
+      if (p) {
+        this.modalVisible = true;
+        this.modalParams = p;
+      }
+    });
   }
 
   startGame($level: number) {
-    this.level = $level;
-    this.state = GameState.Game;
+    this.game.wordLength = $level;
+    this.game.gameState = GameState.Game;
   }
-}
 
-enum GameState {
-  Start,
-  Game,
+  endOfGame($event: any) {
+    this.game.reset();
+  }
 }

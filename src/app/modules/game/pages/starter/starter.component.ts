@@ -2,10 +2,13 @@ import {
   Component,
   ElementRef,
   EventEmitter,
+  Input,
+  OnChanges,
   OnInit,
   Output,
   ViewChild,
 } from '@angular/core';
+import { DifficultyLevelComponent } from 'src/app/modules/shared/components/difficulty-level/difficulty-level.component';
 
 @Component({
   selector: 'app-starter',
@@ -15,15 +18,18 @@ import {
 export class StarterComponent implements OnInit {
   constructor() {}
 
+  @Input()
+  level = 5;
+
   @Output()
   start: EventEmitter<number> = new EventEmitter();
 
-  @ViewChild('level') level!: ElementRef;
+  @ViewChild('difficultyLevelComponent')
+  difficultyLevelComponent!: DifficultyLevelComponent;
 
   ngOnInit(): void {}
 
-  starGame() {
-    const level = parseInt(this.level.nativeElement.value);
-    this.start.emit(level);
+  startGame() {
+    this.start.emit(this.difficultyLevelComponent.selectedLevel);
   }
 }

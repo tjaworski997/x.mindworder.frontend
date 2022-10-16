@@ -1,110 +1,37 @@
-.starter {
-  padding: 40px;
+.container {
   text-align: center;
-  line-height: 40px;
+  font-size: 20px;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
 
-  h1 {
-    font-size: 3em;
-    margin-bottom: 20px;
-    color: var(--color-accent);
+.header {
+  font-size: 2em;
+  margin: 30px 0 30px;
+  span {
+    color: var(--gray);
+  }
+}
+
+.information {
+  font-size: 1.2em;
+  padding: 50px 10px 0 10px;
+}
+
+.difficulty {
+  margin-top: 50px;
+  line-height: 50px;
+  flex: 1;
+}
+
+.footer {
+  margin-bottom: 10px;
+
+  a {
+    display: block;
+    text-decoration: none;
+    color: #ddd;
     margin-bottom: 30px;
   }
-  p {
-    margin: 20px;
-    line-height: 20px;
-  }
-
-  .letters-count {
-    font-size: 40px;
-  }
-}
-
-.accent {
-  color: var(--color-accent);
-  font-size: 1.2em;
-}
-
-.level {
-  border-top: 1px solid var(--gray);
-}
-
-.letters-count select {
-  font-size: 30px;
-}
-
-button {
-  height: 60px;
-  border: none;
-  background-color: var(--color-accent);
-  color: var(--background);
-  font-size: 30px;
-  text-transform: uppercase;
-  border-radius: 4px;
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 60px;
-  margin: 20px;
-  width: calc(100vw - 40px);
-}
-
-select {
-  /* Reset Select */
-  appearance: none;
-  outline: 0;
-  border: 0;
-  box-shadow: none;
-  /* Personalize */
-  flex: 1;
-  padding: 0 1em;
-  color: #fff;
-  background-color: var(--darkgray);
-  background-image: none;
-  cursor: pointer;
-}
-/* Remove IE arrow */
-select::-ms-expand {
-  display: none;
-}
-/* Custom Select wrapper */
-.select {
-  position: relative;
-  display: flex;
-  width: 20em;
-  height: 3em;
-  border-radius: 0.25em;
-  overflow: hidden;
-}
-/* Arrow */
-.select::after {
-  content: "\25BC";
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 1em;
-  background-color: #34495e;
-  transition: 0.25s all ease;
-  pointer-events: none;
-}
-/* Transition */
-.select:hover::after {
-  color: #f39c12;
-}
-
-/* Other styles*/
-body {
-  color: #fff;
-  background: var(--background-gradient);
-}
-h1 {
-  margin: 0 0 0.25em;
-}
-a {
-  font-weight: bold;
-  color: var(--gray);
-  text-decoration: none;
-  padding: 0.25em;
-  border-radius: 0.25em;
-  background: white;
 }

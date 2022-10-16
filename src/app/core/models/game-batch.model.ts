@@ -1,4 +1,5 @@
 export enum AnswerType {
+  none,
   letterCorrectOnRightPosition,
   letterCorrectOnWrongPosition,
   letterWrong,
@@ -12,9 +13,6 @@ export interface GameBatchModel {
   lettersCorrectOnRightPosition: number;
   lettersCorrectOnWrongPosition: number;
   lettersWrong: number;
-
-  start: Date | null;
-  end: Date | null;
 
   lettersAnswerInfo: Array<AnswerType>;
 }

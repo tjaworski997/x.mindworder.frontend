@@ -1,6 +1,11 @@
-<div *ngIf="state == stateType.Start">
-  <app-starter (start)="startGame($event)"></app-starter>
+<app-modal [hidden]="!modalVisible"></app-modal>
+
+<div *ngIf="game.gameState == stateType.Start" [hidden]="modalVisible">
+  <app-starter
+    (start)="startGame($event)"
+    [level]="game.wordLength"
+  ></app-starter>
 </div>
-<div *ngIf="state == stateType.Game">
-  <app-game [wordLength]="level"></app-game>
+<div *ngIf="game.gameState == stateType.Game" [hidden]="modalVisible">
+  <app-game [game]="game" (endOfGame)="endOfGame($event)"></app-game>
 </div>

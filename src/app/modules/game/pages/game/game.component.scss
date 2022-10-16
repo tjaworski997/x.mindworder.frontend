@@ -1,3 +1,11 @@
+.container {
+  text-align: center;
+  font-size: 20px;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
 .letters-container {
   display: flex;
   flex-direction: row;
@@ -5,8 +13,7 @@
   background-color: #111;
   align-items: center;
   border-bottom: 1px solid #333;
-  padding: 10px 0;
-  margin-bottom: 10px;
+  padding: 14px 0 12px;
 
   .letter {
     min-width: 20px;
@@ -18,7 +25,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 34px;
+    font-size: 26px;
     font-weight: 600;
   }
 
@@ -27,15 +34,14 @@
   }
 }
 
-.keyboard {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 330px;
+.main {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  height: 0px;
+  min-height: 130px;
+  margin: 10px;
 }
 
-.main {
-  overflow-y: scroll;
-  height: calc(100vh - 94px - 330px);
+.keyboard {
+  padding-bottom: 10px;
 }

@@ -1,0 +1,5 @@
+<ng-container *ngFor="let item of digits">
+  <button [class.selected]="item === selectedLevel" (click)="click(item)">
+    {{ item }}
+  </button>
+</ng-container>

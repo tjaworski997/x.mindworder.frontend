@@ -10,7 +10,17 @@ export class RandomWordService {
   constructor(private http: HttpClient) {}
 
   getRandomWord(length: number) {
-    const url = environment.apiUrl + `/rw/${length}`;
+    const url = environment.apiUrl + `/words?lang=pl&length=${length}`;
     return this.http.get<RandomWordModel>(url);
+  }
+
+  decryptWord(word: string, length: number) {
+    const res = atob(word.substring(0, 2) + word.substring(2 + length));
+
+    return this.decodeUtf8(res);
+  }
+
+  decodeUtf8(text: string) {
+    return decodeURIComponent(escape(text));
   }
 }

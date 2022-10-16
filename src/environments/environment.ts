@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://poocoo.pl',
+  apiUrl: 'https://givemeawordplease.mindworder.com',
 };
 
 /*

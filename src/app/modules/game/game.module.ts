@@ -7,6 +7,8 @@ import { UserManualComponent } from './components/user-manual/user-manual.compon
 import { SharedModule } from 'src/app/modules/shared/shared.module';
 import { ApplicationComponent } from './pages/application/application.component';
 import { StarterComponent } from './pages/starter/starter.component';
+import { ModalComponent } from './pages/modal/modal.component';
+import { ButtonComponent } from './components/button/button.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import { StarterComponent } from './pages/starter/starter.component';
     UserManualComponent,
     ApplicationComponent,
     StarterComponent,
+    ModalComponent,
+    ButtonComponent,
   ],
   imports: [CommonModule, SharedModule],
   exports: [GameComponent, ApplicationComponent],

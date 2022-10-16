@@ -1,19 +1,24 @@
-<div class="letters-container">
-  <div
-    *ngFor="let in of [].constructor(wordLength); let i = index"
-    id="il_{{ i }}"
-    class="letter"
-    (click)="letterClick($event)"
-    [ngClass]="{ active: i === currentLetterId }"
-  >
-    {{ letters[i] }}
+<div class="container" (keydown)="keyDown($event)">
+  <div class="letters-container">
+    <div
+      *ngFor="let in of [].constructor(game.wordLength); let i = index"
+      id="il_{{ i }}"
+      class="letter"
+      (click)="letterClick($event)"
+      [ngClass]="{ active: i === game.currentLetterId }"
+    >
+      {{ game.letters[i] }}
+    </div>
   </div>
-</div>
-<div class="main">
-  <app-user-manual *ngIf="gameBatches.length == 0"> </app-user-manual>
+  <div class="main" #gameInformation>
+    <app-user-manual *ngIf="game.batches?.length == 0"> </app-user-manual>
+    <app-game-batch-info *ngFor="let batch of game.batches" [batch]="batch">
+    </app-game-batch-info>
+  </div>
 
-  <app-game-batch-info *ngFor="let batch of gameBatches" [batch]="batch">
-  </app-game-batch-info>
+  <app-keyboard
+    #keyboard
+    class="keyboard"
+    (onKeyPress)="keyPress($event)"
+  ></app-keyboard>
 </div>
-
-<app-keyboard class="keyboard" (onKeyPress)="keyPress($event)"></app-keyboard>
