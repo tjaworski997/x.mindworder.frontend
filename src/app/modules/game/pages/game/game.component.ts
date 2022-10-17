@@ -198,7 +198,9 @@ export class GameComponent implements OnInit {
     this.game.currentLetterId = parseInt(id);
   }
 
-  private help() {}
+  private help() {
+    //
+  }
 
   keyDown($event: KeyboardEvent) {}
 }
